@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificado - Metrologia na Prática</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      color: #003366;
+      margin-bottom: 20px;
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: #003366;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0055aa;
+    }
+    #mensagem {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #cc0000;
+    }
+    #download {
+      margin-top: 20px;
+      display: none;
+    }
+    #download a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    #download a:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Baixar Certificado</h1>
+  <p>Selecione seu nome para baixar o certificado:</p>
+
+  <select id="aluno">
+    <option value="">-- Selecione seu nome --</option>
+    <option>Alessandra Cristina Machado</option>
+    <option>Arieli Cristina Gaudêncio</option>
+    <option>Delma Marcia Pardini</option>
+    <option>Daiane Aparecida Ferreira</option>
+    <option>Daniel Lima</option>
+    <option>Samuel Pires Evangelista</option>
+    <option>Valeria Imidio</option>
+    <option>Edivan da Conceição</option>
+    <option>Ana Flávia de Andrade</option>
+    <option>Aline Aparecida de Freitas Maineti</option>
+    <option>Karoline Cristina da Silva Vitalino</option>
+    <option>Lidia Scarlet da Silva Vitalino de Oliveira</option>
+    <option>João Victor Gonçalves da Silva</option>
+  </select>
+
+  <button onclick="gerarCertificado()">Baixar</button>
+  <p id="mensagem"></p>
+
+  <div id="download">
+    <a id="linkCertificado" href="#" download>Clique aqui para baixar</a>
+  </div>
+</div>
+
+<script>
+  function gerarCertificado() {
+    const aluno = document.getElementById("aluno").value;
+    const msg = document.getElementById("mensagem");
+    const downloadDiv = document.getElementById("download");
+    const link = document.getElementById("linkCertificado");
+
+    if (!aluno) {
+      msg.textContent = "Por favor, selecione seu nome.";
+      downloadDiv.style.display = "none";
+      return;
+    }
+
+    // Monta o link para o PDF
+    const pdfUrl = `https://professorgaldino.github.io/metrologianapratica/${aluno}.pdf`;
+
+    // Exibe o link
+    msg.textContent = "";
+    link.href = pdfUrl;
+    link.setAttribute("download", `${aluno}.pdf`);
+    downloadDiv.style.display = "block";
+  }
+</script>
+
+</body>
+</html>

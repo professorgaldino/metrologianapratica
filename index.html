@@ -7,24 +7,30 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #eef2f7;
+      background: linear-gradient(135deg, #003366, #0055aa);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 20px;
     }
     .container {
       background: white;
       padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
       text-align: center;
-      max-width: 400px;
+      max-width: 500px;
       width: 100%;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h1 {
       color: #003366;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     select, button {
       width: 100%;
@@ -65,11 +71,51 @@
     #download a:hover {
       background: #218838;
     }
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #003366;
+      margin-bottom: 20px;
+    }
+    .promo {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 16px;
+      background: #f0f6ff;
+      border: 1px solid #cce0ff;
+    }
+    .promo h2 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    .promo p {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .promo a {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #ff6600;
+      color: white;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .promo a:hover {
+      background: #e65c00;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
+  <img src="logomecanica.png" alt="Logo Mecânica" class="logo">
+
   <h1>Baixar Certificado</h1>
   <p>Selecione seu nome para baixar o certificado:</p>
 
@@ -95,6 +141,14 @@
 
   <div id="download">
     <a id="linkCertificado" href="#" download>Clique aqui para baixar</a>
+  </div>
+
+  <!-- PROPAGANDA -->
+  <div class="promo">
+    <h1>🚀 Transforme seu Futuro!</h1>
+    <p>Venha estudar <strong>Mecânica Industrial</strong> na <strong>ETEC</strong> e prepare-se para uma carreira de sucesso na indústria!  
+    Aprenda com prática em laboratórios, professores especialistas e uma formação de excelência.</p>
+    <a href="https://vestibulinho.etec.sp.gov.br/home/" target="_blank">🎓 Inscreva-se no Vestibulinho</a>
   </div>
 </div>
 
